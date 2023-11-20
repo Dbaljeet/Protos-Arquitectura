@@ -23,7 +23,7 @@ message CreateUserRequest{
 
 message CreateUserResponse{
     string jwt = 1;
-    optional Error error = 2;
+    Error error = 2;
 }
 
 message LoginUserRequest{
@@ -33,7 +33,7 @@ message LoginUserRequest{
 
 message LoginUserResponse{
     string jwt = 1;
-    optional Error error = 2;
+    Error error = 2;
 }
 
 message ValidateUserRequest {
@@ -42,5 +42,5 @@ message ValidateUserRequest {
 
 message ValidateUserResponse {
     string email = 1;
-    optional Error error = 2;
+    Error error = 2;
 }

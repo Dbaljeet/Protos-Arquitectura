@@ -15,14 +15,10 @@ message Error {
 
 message Empty {};
 
-message User {
+message CreateUserRequest{
     string userName = 1;
     string email = 2;
     string password = 3;
-}
-
-message CreateUserRequest{
-    User user = 1;
 }
 
 message CreateUserResponse{

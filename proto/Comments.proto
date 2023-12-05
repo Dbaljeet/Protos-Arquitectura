@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package Comment;
+
+service UserAuthService { 
+    rpc CreateComment (CreateCommentRequest) returns (CreateCommentResponse) {}
+    rpc DeleteComment (DeleteCommentRequest) returns (DeleteCommentResponse) {}
+    rpc UpdateComment (UpdateCommentRequest) returns (UpdateCommentResponse) {}
+}
+
+message Error {
+    int32 code = 1;
+    string message = 2;
+}
+
+message Empty {};
+
+message CreateCommentRequest{
+    string creator = 1;
+    string message = 2;
+    string postID = 3;
+    string jwt = 4;
+} 
+
+message CreateCommentResponse{
+    string message = 1;
+    Error error = 2;
+}
+
+message DeleteCommentRequest{
+    string postID = 1;
+    string commentID = 2;
+    string jwt = 3;
+}
+
+message DeleteCommentResponse{
+    string message = 1;
+    Error error = 2;
+}
+
+message UpdateCommentRequest {
+    string jwt = 1;
+    string postID = 2;
+    string commentID = 3;
+    string message = 4;
+}
+
+message UpdateCommentResponse {
+    string message = 1;
+    Error error = 2;
+}

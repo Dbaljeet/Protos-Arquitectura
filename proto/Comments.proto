@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package Comment;
 
-service UserAuthService { 
+service CommentService { 
     rpc CreateComment (CreateCommentRequest) returns (CreateCommentResponse) {}
     rpc DeleteComment (DeleteCommentRequest) returns (DeleteCommentResponse) {}
     rpc UpdateComment (UpdateCommentRequest) returns (UpdateCommentResponse) {}

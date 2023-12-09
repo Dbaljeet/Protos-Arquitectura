@@ -34,17 +34,16 @@ message DeleteCommentRequest{
 
 message DeleteCommentResponse{
     string message = 1;
-    Error error = 2;
+    optional Error error = 2;
 }
 
 message UpdateCommentRequest {
     string jwt = 1;
-    int64 postID = 2;
     int64 commentID = 3;
     string message = 4;
 }
 
 message UpdateCommentResponse {
     string message = 1;
-    Error error = 2;
+    optional Error error = 2;
 }

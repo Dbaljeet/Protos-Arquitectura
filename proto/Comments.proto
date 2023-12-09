@@ -18,17 +18,17 @@ message Empty {};
 message CreateCommentRequest{
     string creator = 1;
     string message = 2;
-    string postID = 3;
+    int64 postID = 3;
     string jwt = 4;
 } 
 
 message CreateCommentResponse{
     string message = 1;
-    Error error = 2;
+    optional Error error = 2;
 }
 
 message DeleteCommentRequest{
-    string postID = 1;
+    int64 postID = 1;
     string commentID = 2;
     string jwt = 3;
 }
@@ -40,7 +40,7 @@ message DeleteCommentResponse{
 
 message UpdateCommentRequest {
     string jwt = 1;
-    string postID = 2;
+    int64 postID = 2;
     string commentID = 3;
     string message = 4;
 }

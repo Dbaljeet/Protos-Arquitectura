@@ -16,10 +16,9 @@ message Error {
 message Empty {};
 
 message CreateCommentRequest{
-    string creator = 1;
-    string message = 2;
-    int64 postID = 3;
-    string jwt = 4;
+    string message = 1;
+    int64 postID = 2;
+    string jwt = 3;
 } 
 
 message CreateCommentResponse{

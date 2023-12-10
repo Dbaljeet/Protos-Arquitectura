@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+package posts;
+
+option go_package = "gitlab.com/pinterestarquitectura/posts-microservice;postspb";
+
+message Empty {};
+
+message Post {
+    int64 id = 1;
+    string postUrl = 2;
+    string description = 3;
+    google.protobuf.Timestamp createdAt = 4;
+    int64 userId = 5;
+}
+message PutPostRequest {
+    string jwt=1;
+    string postUrl = 2;
+    string description = 3;
+}
+message UpdatePostRequest{
+    string jwt=1;
+    string newDescription=2;
+    int64 postId=3;
+}
+message DeletePostRequest{
+    string jwt=1;
+    int64 postId =2;
+}
+message DeletePostResponse{
+    string message =1;
+}
+message GetPostRequest {
+    int64 id = 1;
+}
+
+message PostList {
+    repeated Post posts = 1;
+}
+
+service PostService {
+    rpc GetPost(GetPostRequest) returns (Post) {}
+    rpc GetPosts(Empty) returns (PostList) {}
+    rpc CreatePost(PutPostRequest) returns (Post) {}
+    rpc UpdatePost(UpdatePostRequest) returns (Post) {}
+    rpc DeletePost(DeletePostRequest) returns(DeletePostResponse) {}
+}

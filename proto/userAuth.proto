@@ -42,5 +42,7 @@ message ValidateUserRequest {
 
 message ValidateUserResponse {
     string email = 1;
-    optional Error error = 2;
+    string username = 2;
+    int64 id = 3;
+    optional Error error = 4;
 }
